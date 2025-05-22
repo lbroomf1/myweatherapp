@@ -19,3 +19,55 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+---
+
+### Key TypeScript Modifications:
+
+- The app is using **TypeScript** (specified in the README).
+
+---
+
+
+Below are TypeScript-based code snippets for implementing the "Clear History" functionality on each page
+
+#### 1. **Weather Page (Clear History)**
+
+```tsx
+import React, { useState } from 'react';
+import { Button, View, Text } from 'react-native';
+
+// Define a type for the weather history
+interface WeatherHistory {
+  zipCode: string;
+  temperature: string;
+}
+
+const WeatherPage: React.FC = () => {
+  const [weatherHistory, setWeatherHistory] = useState<WeatherHistory[]>([]);
+
+  const clearWeatherHistory = () => {
+    setWeatherHistory([]); // Clears the weather history
+  };
+
+  return (
+    <View>
+      <Text>Weather History:</Text>
+      {weatherHistory.length > 0 ? (
+        weatherHistory.map((history, index) => (
+          <Text key={index}>
+            {history.zipCode}: {history.temperature}°F
+          </Text>
+        ))
+      ) : (
+        <Text>No weather history available.</Text>
+      )}
+      
+      {/* Clear Button */}
+      <Button title="Clear Weather History" onPress={clearWeatherHistory} />
+    </View>
+  );
+};
+
+export default WeatherPage;
