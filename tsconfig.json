@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext"],
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "types": ["react", "react-native"],
+    "incremental": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
